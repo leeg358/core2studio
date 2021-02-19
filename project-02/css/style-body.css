@@ -1,0 +1,44 @@
+body{
+    background: black;
+    cursor: none;
+    
+}
+
+.cursor{
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    transform: translate(-50%,-50%);
+
+
+}
+
+.body-text{
+    color: black;
+    font-family: 'Noto Sans';
+    font-size: 1.5em;
+    font-weight: 400;
+    text-align: justify;
+    width: 70%;
+    margin: auto;
+    text-justify: inter-word;
+    position: relative;
+    top: 10vh;
+    padding-bottom: 100px;
+}
+
+mark{
+    color: white;
+   background: transparent;
+}
+
+mark:hover{
+    color: black;
+}
+
+.punctuation{
+    color: white;
+}
+

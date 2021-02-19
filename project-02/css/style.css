@@ -1,0 +1,50 @@
+body{
+    background: black;
+}
+
+h1{
+    color: white;
+    font-family: 'Noto Sans';
+    font-size: 2em;
+    font-weight: 400;
+    text-align: center;
+    width: 70%;
+}
+
+.main-text{
+    font-size: 2em;
+    font-weight: 400;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    top: 20vh;
+    position: relative;
+}
+
+.circle-button{
+    display: block;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin: auto;
+    top: 45vh;
+    position: relative;
+
+    box-shadow: 0 0 0 white;
+    animation: pulse 1.6s infinite cubic-bezier(0.66, .33, .66, .66);
+
+}
+
+.circle-button:hover{
+    animation: none;
+    background-color: white;
+    transition: .5s;
+}
+
+@keyframes pulse{
+    100%{
+        box-shadow: 0 0 70px 35px white;
+        opacity: 50%;
+    }
+}
