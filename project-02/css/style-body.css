@@ -47,7 +47,7 @@ font-weight: 400;
 
 font-style: normal;
 
-font-size: 2em;
+font-size: 1.5em;
 line-height: 0;
 
 
@@ -81,3 +81,17 @@ a:link {
   a:active {
     text-decoration: none;
   }
+
+
+/* scroll indicator*/
+
+.line { 
+    background: white; 
+    height: 8px; 
+    border-radius: 4px; 
+    width: 0%; 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    z-index:1;
+} 
