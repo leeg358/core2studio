@@ -5,8 +5,8 @@ body{
 }
 
 .cursor{
-    width: 6vw;
-    height: 6vw;
+    width: 5vw;
+    height: 5vw;
     border-radius: 50%;
     background-color: white;
     position: absolute;
@@ -17,13 +17,21 @@ body{
 
 .body-text{
     color: black;
-    font-family: 'Noto Sans';
+
+
+    font-family: helvetica;
+
+    font-weight: 400;
+ 
+    font-style: normal;
+
     font-size: 1.5em;
     font-weight: 400;
     text-align: justify;
     width: 70%;
     margin: auto;
     text-justify: inter-word;
+    text-align-last: center;
     position: relative;
     top: 10vh;
     padding-bottom: 100px;
@@ -32,6 +40,18 @@ body{
 mark{
     color: white;
    background: transparent;
+
+   font-family: geneo-std, sans-serif;
+
+font-weight: 400;
+
+font-style: normal;
+
+font-size: 2em;
+line-height: 0;
+
+
+
 }
 
 mark:hover{
@@ -42,3 +62,22 @@ mark:hover{
     color: white;
 }
 
+.arrow{
+    font-size: 4em;
+}
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
