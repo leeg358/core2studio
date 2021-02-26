@@ -95,3 +95,38 @@ a:link {
     left: 0;
     z-index:1;
 } 
+
+
+
+
+
+@media only screen and (max-width: 480px) {
+    
+  .body-text{
+    color: black;
+    font-size: .9em;
+    width: 80%;
+    line-height: 1.5em;
+    top: 40%;
+
+    padding-bottom: 403;
+  }
+  
+
+
+  .cursor{
+    display: none;
+  }
+
+.lightbox{
+  background-color: white;
+  position: fixed;
+  z-index: -1;
+  top: 40%;
+  height: 1.3em;
+  width: 100vw;
+  left:0;
+}
+
+}
+  

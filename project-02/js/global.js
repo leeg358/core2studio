@@ -1,3 +1,5 @@
+
+
 window.addEventListener("load",function(){
     let mouseCursor = document.querySelector(".cursor")
     let bodyText = document.querySelector(".body-text")

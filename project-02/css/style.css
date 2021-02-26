@@ -55,3 +55,24 @@ h1{
         opacity: 50%;
     }
 }
+
+
+
+
+@media only screen and (max-width: 480px) {
+    
+    
+.main-text{
+    font-size: 1.25em;
+}
+
+.circle-button{
+    width: 15vw;
+    height: 15vw;
+
+    top: 35vh;
+}
+
+
+}
+
