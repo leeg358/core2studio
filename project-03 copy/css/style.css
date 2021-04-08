@@ -2,6 +2,11 @@ body{
     font-family: "helvetica";
 }
 
+span{
+    padding: 1rem;
+    background: lightblue;
+    cursor: pointer;
+}
 
 /* */
 
