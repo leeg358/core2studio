@@ -1,4 +1,4 @@
-// Drop down menu for time of day 
+/* // Drop down menu for time of day 
 const selected = document.querySelector(".selected");
 const optionsContainer = document.querySelector(".options-container");
 
@@ -13,7 +13,7 @@ optionsList.forEach( o => {
         selected.innerHTML = o.querySelector("label").innerHTML;
         optionsContainer.classList.remove("active");  
     });
-});
+}); */
 
 // airtable
 
@@ -67,26 +67,52 @@ function showSongs(){
         songImage.classList.add("song-image");
         songImage.src = song.fields.Image[0].url;
         songContainer.append(songImage);
+
+
+    // add event listener to add active class to song container
+    songContainer.addEventListener("click", function(event) {
+        songTitle.classList.toggle("active");
+        songImage.classList.toggle("active");
+      });
+  
+      // get genre field from airtable
+      // loop through the array and add each genre as
+      // a class to the song container
+      var songTime = song.fields.Time;
+      songTime.forEach(function(time) {
+        songContainer.classList.add(time);
+      });
+  
+
+var filterSunrise = document.querySelector(".sunrise");
+filterSunrise.addEventListener("click", function() {
+    if (songContainer.classList.contains("sunrise")) {
+        songContainer.style.display = "block";
+      } else {
+        songContainer.style.display = "none";
+      }
     })
+
+    var filterEarlyMorning = document.querySelector(".early-morning");
+filterEarlyMorning.addEventListener("click", function() {
+    if (songContainer.classList.contains("early-morning")) {
+        songContainer.style.display = "block";
+      } else {
+        songContainer.style.display = "none";
+      }
+    })
+
+    var filterMorning = document.querySelector(".morning");
+    filterMorning.addEventListener("click", function() {
+        if (songContainer.classList.contains("morning")) {
+            songContainer.style.display = "block";
+          } else {
+            songContainer.style.display = "none";
+          }
+        })
+    
+
+
+});
 }
-
-songContainer.addEventListener("click",function(){
-   songTitle.classList.toggle("active");
-    songImage.classList.toggle("active");
-})
-
-var songTime = song.fields.Time;
-songContainer.classList.add(songTime);
-
-var filterSunrise = document.querySelector('#sunrise');
-filterSunrise.addEventListener("click", function(){
-    if (songContainer.classList.contains("Sunrise")){
-        songContainer.style.display="block";
-    } 
-    else{
-        songContainer.style.display="none";
-    }
-})
-;
-
 
