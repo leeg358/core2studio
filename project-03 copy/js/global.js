@@ -60,6 +60,11 @@ function showSongs(){
         songTime.forEach(function(time) {
         songContainer.classList.add(time);
       });
+
+      var songWeather = song.fields.Weather;
+      songWeather.forEach(function(weather) {
+      songContainer.classList.add(weather);
+    });
         
 
       var filterSunrise = document.querySelector(".sunrise");
@@ -126,7 +131,50 @@ function showSongs(){
           songContainer.style.display = "inline-block";
         });
 
+        var filterSunny = document.querySelector(".sunny");
+      filterSunny.addEventListener("click", function() {
+        if (songContainer.classList.contains("Sunny")) {
+            songContainer.style.display = "inline-block";
+          } else {
+            songContainer.style.display = "none";
+          }
+      });
 
+      var filterPartiallyCloudy = document.querySelector(".partially-cloudy");
+      filterPartiallyCloudy.addEventListener("click", function() {
+        if (songContainer.classList.contains("PartiallyCloudy")) {
+            songContainer.style.display = "inline-block";
+          } else {
+            songContainer.style.display = "none";
+          }
+      });
+
+      var filterCloudy = document.querySelector(".cloudy");
+      filterCloudy.addEventListener("click", function() {
+        if (songContainer.classList.contains("Cloudy")) {
+            songContainer.style.display = "inline-block";
+          } else {
+            songContainer.style.display = "none";
+          }
+      });
+
+      var filterRainy = document.querySelector(".rainy");
+      filterRainy.addEventListener("click", function() {
+        if (songContainer.classList.contains("Rainy")) {
+            songContainer.style.display = "inline-block";
+          } else {
+            songContainer.style.display = "none";
+          }
+      });
+
+      var filterClearSkies = document.querySelector(".clear-skies");
+      filterClearSkies.addEventListener("click", function() {
+        if (songContainer.classList.contains("ClearSkies")) {
+            songContainer.style.display = "inline-block";
+          } else {
+            songContainer.style.display = "none";
+          }
+      });
     });
   }
 
