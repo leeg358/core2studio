@@ -1,181 +1,139 @@
-
-
-console.log("is our script file working?")
+console.log("is our script file working?");
 
 var Airtable = require("airtable");
 
 var base = new Airtable({ apiKey: "keyNb14EWwLv4CwYS" }).base(
-    "apphMeunl37OMmO3d"
-  );
+  "apphMeunl37OMmO3d"
+);
 
 base("chill songs").select({}).eachPage(gotPageOfSongs, gotAllSongs);
 
-const songs = []
+const songs = [];
 
 function gotPageOfSongs(records, fetchNextPage) {
-    console.log("gotPageOfSongs()");
-    songs.push(...records);
-    fetchNextPage();
-  }
-
-  function gotAllSongs(err){
-      console.log("gotAllSongs()");
-  
-
-  consoleLogSongs();
-    showSongs();
-  }
-
-function consoleLogSongs(){
-    console.log("consoleLogSongs()");
-    songs.forEach((song)=>{
-        console.log("Song:", song);     
-});
+  console.log("gotPageOfSongs()");
+  songs.push(...records);
+  fetchNextPage();
 }
 
-function showSongs(){
-    console.log("showSongs()");
-    songs.forEach((song)=>{
-        
-        var songContainer = document.createElement("div");
-        songContainer.classList.add("song-container");
-        document.querySelector(".container").append(songContainer);
+function gotAllSongs(err) {
+  console.log("gotAllSongs()");
 
-        var songTitle = document.createElement("h2");
-        songTitle.classList.add("song-title");
-        songTitle.innerText = song.fields.Title;
-        songContainer.append(songTitle);
+  // consoleLogSongs();
+  showSongs();
+  addButtonListeners();
+}
 
-        var songImage = document.createElement("img");
-        songImage.classList.add("song-image");
-        songImage.src = song.fields.Image[0].url;
-        songContainer.append(songImage);
+function consoleLogSongs() {
+  console.log("consoleLogSongs()");
+  songs.forEach((song) => {
+    console.log("Song:", song);
+  });
+}
 
-        songContainer.addEventListener("click", function(event){
-          songTitle.classList.toggle("active");
-          songImage.classList.toggle("active");
-        })
+let timeOfDay = "song-container";
+let weather = "song-container";
 
-      var songTime = song.fields.Time;
-        songTime.forEach(function(time) {
-        songContainer.classList.add(time);
-      });
+function setTimeOfDay(newTimeOfDay) {
+  // remember the new time
+  timeOfDay = newTimeOfDay;
+  filterSongs();
+}
 
-      var songWeather = song.fields.Weather;
-      songWeather.forEach(function(weather) {
-      songContainer.classList.add(weather);
-    });
-        
+function setWeather(newWeather) {
+  weather = newWeather;
+  filterSongs();
+}
 
-      var filterSunrise = document.querySelector(".sunrise");
-      filterSunrise.addEventListener("click", function() {
-        if (songContainer.classList.contains("Sunrise")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-      });
+function filterSongs() {
+  console.log("filter songs", timeOfDay, weather);
 
-      var filterEarlyMorning = document.querySelector('.early-morning');
-      filterEarlyMorning.addEventListener("click", function(){
-
-        if (songContainer.classList.contains("EarlyMorning")) {
-          songContainer.style.display = "inline-block";
-        } else {
-          songContainer.style.display = "none";
-        }
-      });
-
-        var filterMorning = document.querySelector('.morning');
-        filterMorning.addEventListener("click", function(){
-
-          if (songContainer.classList.contains("Morning")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-        });
-
-       var filterAfternoon = document.querySelector('.afternoon');
-        filterAfternoon.addEventListener("click", function(){
-
-          if (songContainer.classList.contains("Afternoon")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-        });
-        
-        var filterSunset = document.querySelector('.sunset');
-        filterSunset.addEventListener("click", function(){
-
-          if (songContainer.classList.contains("Sunset")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-        });
-        
-        var filterNight = document.querySelector('.night');
-        filterNight.addEventListener("click", function(){
-
-          if (songContainer.classList.contains("Night")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-        }); 
-
-        var filterReset = document.querySelector(".reset");
-        filterReset.addEventListener("click", function() {
-          songContainer.style.display = "inline-block";
-        });
-
-        var filterSunny = document.querySelector(".sunny");
-      filterSunny.addEventListener("click", function() {
-        if (songContainer.classList.contains("Sunny")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-      });
-
-      var filterPartiallyCloudy = document.querySelector(".partially-cloudy");
-      filterPartiallyCloudy.addEventListener("click", function() {
-        if (songContainer.classList.contains("PartiallyCloudy")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-      });
-
-      var filterCloudy = document.querySelector(".cloudy");
-      filterCloudy.addEventListener("click", function() {
-        if (songContainer.classList.contains("Cloudy")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-      });
-
-      var filterRainy = document.querySelector(".rainy");
-      filterRainy.addEventListener("click", function() {
-        if (songContainer.classList.contains("Rainy")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-      });
-
-      var filterClearSkies = document.querySelector(".clear-skies");
-      filterClearSkies.addEventListener("click", function() {
-        if (songContainer.classList.contains("ClearSkies")) {
-            songContainer.style.display = "inline-block";
-          } else {
-            songContainer.style.display = "none";
-          }
-      });
-    });
+  // hide all the songs
+  const songContainers = document.querySelectorAll(".song-container");
+  for (s of songContainers) {
+    s.style.display = "none";
   }
 
-  
+
+  // show all the songs if time and weather match
+  const filteredContainers = document.querySelectorAll("." + timeOfDay + "." + weather);
+  console.log(filteredContainers);
+  for (s of filteredContainers) {
+    s.style.display = "inline-block";
+  }
+}
+
+
+
+function addButtonListeners() {
+  var filterSunrise = document.querySelector(".sunrise");
+  filterSunrise.addEventListener("click", ()=>setTimeOfDay("Sunrise"));
+
+  var filterEarlyMorning = document.querySelector(".early-morning");
+  filterEarlyMorning.addEventListener("click", ()=>setTimeOfDay("EarlyMorning"));
+
+  var filterMorning = document.querySelector(".morning");
+  filterMorning.addEventListener("click", ()=>setTimeOfDay("Morning"));
+
+  var filterAfternoon = document.querySelector(".afternoon");
+  filterAfternoon.addEventListener("click", ()=>setTimeOfDay("Afternoon"));
+
+  var filterSunset = document.querySelector(".sunset");
+  filterSunset.addEventListener("click", ()=>setTimeOfDay("Sunset"));
+
+  var filterNight = document.querySelector(".night");
+  filterNight.addEventListener("click", ()=>setTimeOfDay("Night"));
+
+  var filterReset = document.querySelector(".reset");
+  filterReset.addEventListener("click", ()=>setTimeOfDay("song-container"));
+
+   var filterPartiallyCloudy = document.querySelector(".sunny");
+   filterPartiallyCloudy.addEventListener("click", () =>
+     setWeather("Sunny")
+   );
+
+  var filterPartiallyCloudy = document.querySelector(".partially-cloudy");
+  filterPartiallyCloudy.addEventListener("click", ()=>setWeather("PartiallyCloudy"));
+
+  var filterCloudy = document.querySelector(".cloudy");
+  filterCloudy.addEventListener("click", ()=>setWeather("Cloudy"));
+
+  var filterRainy = document.querySelector(".rainy");
+  filterRainy.addEventListener("click", ()=>setWeather("Rainy"));
+
+  var filterClearSkies = document.querySelector(".clear-skies");
+  filterClearSkies.addEventListener("click", ()=>setWeather("ClearSkies"));
+}
+function showSongs() {
+  console.log("showSongs()");
+  songs.forEach((song) => {
+    var songContainer = document.createElement("div");
+    songContainer.classList.add("song-container");
+    document.querySelector(".container").append(songContainer);
+
+    var songTitle = document.createElement("h2");
+    songTitle.classList.add("song-title");
+    songTitle.innerText = song.fields.Title;
+    songContainer.append(songTitle);
+
+    var songImage = document.createElement("img");
+    songImage.classList.add("song-image");
+    songImage.src = song.fields.Image[0].url;
+    songContainer.append(songImage);
+
+    songContainer.addEventListener("click", function (event) {
+      songTitle.classList.toggle("active");
+      songImage.classList.toggle("active");
+    });
+
+    var songTime = song.fields.Time;
+    songTime.forEach(function (time) {
+      songContainer.classList.add(time);
+    });
+
+    var songWeather = song.fields.Weather;
+    songWeather.forEach(function (weather) {
+      songContainer.classList.add(weather);
+    });
+  });
+}
