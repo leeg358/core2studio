@@ -151,21 +151,30 @@ function showSongs() {
     songImage.src = song.fields.Image[0].url;
     songContainer.append(songImage);
 
-    var songSpotify = document.createElement("a");
+    var songArtist = document.createElement("h3");
+    songArtist.classList.add("song-artist");
+    songArtist.innerText = song.fields.Artist;
+    songContainer.append(songArtist);
+
+/*     var songSpotify = document.createElement("a");
     songSpotify.setAttribute("href", song.fields.Spotify);
+    songSpotify.classList.add("song-spotify");
+    songSpotify.innerHTML = "Listen to it on Spotify!";
+    songContainer.append(songSpotify); */
+
+    var songSpotify = document.createElement("IFRAME");
+    songSpotify.setAttribute("src", song.fields.Spotify);
     songSpotify.classList.add("song-spotify");
     songSpotify.innerHTML = "Listen to it on Spotify!";
     songContainer.append(songSpotify);
 
-    var showMusicButtton = document.querySelector(".show-music");
-    showMusicButtton.addEventListener("click", function (event){
-      songImage.classList.toggle("active");
-      console.log("see songs!")
-    })
 
     
     songContainer.addEventListener("click", function (event) {
-      songSpotify.classList.toggle("active");
+      songContainer.classList.toggle("active");
+      songImage.classList.toggle("active");
+     songSpotify.classList.toggle("active");
+   songArtist.classList.toggle("active");
       console.log("click")
     });
 

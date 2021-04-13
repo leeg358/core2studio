@@ -27,53 +27,96 @@ body{
 
 
 button{
-    padding: 1rem;
-    background: lightblue;
-    cursor: pointer;
-}
+   padding: .3rem .6rem;
 
+    cursor: pointer;
+    border:none;
+    outline:  .5px black;
+
+    background: rgba(255, 255, 255,0);
+    font-size: 15px;
+}
+button:focus{
+    outline-color: none;
+    border-radius: 0;
+}
 .clicked {
-    color: rgb(255,255,255);
-    background-color: rgb(0,0,0);
+    border:solid 2px black;
+
     }
 
+h1{
+    font-family: "SneakyTimes";
+    margin: 20px;
+    
+    display: inline;
+}
+div{
+    display: inline;
+}
 
 h2{
-    font-size: 20px;
+    font-family: "helvetica";
+    font-size: 1rem;
 }
 
 /* */
 
+h3{
+    font-size: .75rem;
+}
+a{
+    font-size: .75rem;
+}
+
 
 .song-container {
-
+text-align: center;
     display: inline-block;
-    margin: 2rem;
+    margin: 1rem;
+    width: 15vw;
+
+    border: none;
 
 }
+.song-container.active{
+    border: 1px solid black;
+}
+
 
 
 
 .song-image {
-display: none;
-}
-
-
-
-.song-image.active {
     display: block;
-    width: 7vw;
+    margin: auto;
+    width: 80px;
     height: auto;
     display: block;
-
- /*    margin-left: auto;
-    margin-right: auto; */
 }
 
+.song-image.active{
+    display: none;
+}
+
+
+iframe{
+    width: 80px;
+    height:80px;
+    margin: auto;
+}
 .song-spotify {
     display: none;
   }
   
   .song-spotify.active {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .song-artist {
+    display: none;
+  }
+  
+  .song-artist.active {
     display: block;
   }

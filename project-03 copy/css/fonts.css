@@ -1,1 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap');
+@font-face {
+    font-family: "SneakyTimes";
+    src: url(/fonts/Sneaky-Times.woff) format("woff"),
+    url(/fonts/Sneaky-Times.woff2) format("woff2");
+  }
+  
