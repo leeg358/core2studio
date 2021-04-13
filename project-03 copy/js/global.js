@@ -27,6 +27,7 @@ function gotAllSongs(err) {
 function consoleLogSongs() {
   console.log("consoleLogSongs()");
   songs.forEach((song) => {
+
     console.log("Song:", song);
   });
 }
@@ -55,79 +56,82 @@ function filterSongs() {
     s.style.display = "none";
   }
 
-
   // show all the songs if time and weather match
-  const filteredContainers = document.querySelectorAll("." + timeOfDay + "." + weather);
+  const filteredContainers = document.querySelectorAll(
+    "." + timeOfDay + "." + weather
+  );
   console.log(filteredContainers);
   for (s of filteredContainers) {
     s.style.display = "inline-block";
   }
 }
 
-//change color of selected time of day button 
-var dayButton = document.getElementsByClassName('day-button');
+//change color of selected time of day button
+var dayButton = document.getElementsByClassName("day-button");
 function dayButtonColor() {
-    for (var i = 0; i < dayButton.length; i++) {
-      dayButton[i].classList.remove('clicked');
-    }
-    this.classList.add('clicked');
+  for (var i = 0; i < dayButton.length; i++) {
+    dayButton[i].classList.remove("clicked");
+  }
+  this.classList.add("clicked");
 }
 for (var i = 0; i < dayButton.length; i++) {
-  dayButton[i].addEventListener('click',dayButtonColor,false);
+  dayButton[i].addEventListener("click", dayButtonColor, false);
 }
 
 //change color of selected weather buttton
-var weatherButton = document.getElementsByClassName('weather-button');
+var weatherButton = document.getElementsByClassName("weather-button");
 function weatherButtonColor() {
-    for (var i = 0; i < weatherButton.length; i++) {
-      weatherButton[i].classList.remove('clicked');
-    }
-    this.classList.add('clicked');
+  for (var i = 0; i < weatherButton.length; i++) {
+    weatherButton[i].classList.remove("clicked");
+  }
+  this.classList.add("clicked");
 }
 for (var i = 0; i < weatherButton.length; i++) {
-  weatherButton[i].addEventListener('click',weatherButtonColor,false);
+  weatherButton[i].addEventListener("click", weatherButtonColor, false);
 }
+
 
 
 function addButtonListeners() {
   var filterSunrise = document.querySelector(".sunrise");
-  filterSunrise.addEventListener("click", ()=>setTimeOfDay("Sunrise"));
+  filterSunrise.addEventListener("click", () => setTimeOfDay("Sunrise"));
 
   var filterEarlyMorning = document.querySelector(".early-morning");
-  filterEarlyMorning.addEventListener("click", ()=>setTimeOfDay("EarlyMorning"));
-
+  filterEarlyMorning.addEventListener("click", () =>
+    setTimeOfDay("EarlyMorning")
+  );
 
   var filterMorning = document.querySelector(".morning");
-  filterMorning.addEventListener("click", ()=>setTimeOfDay("Morning"));
+  filterMorning.addEventListener("click", () => setTimeOfDay("Morning"));
 
   var filterAfternoon = document.querySelector(".afternoon");
-  filterAfternoon.addEventListener("click", ()=>setTimeOfDay("Afternoon"));
+  filterAfternoon.addEventListener("click", () => setTimeOfDay("Afternoon"));
 
   var filterSunset = document.querySelector(".sunset");
-  filterSunset.addEventListener("click", ()=>setTimeOfDay("Sunset"));
+  filterSunset.addEventListener("click", () => setTimeOfDay("Sunset"));
 
   var filterNight = document.querySelector(".night");
-  filterNight.addEventListener("click", ()=>setTimeOfDay("Night"));
+  filterNight.addEventListener("click", () => setTimeOfDay("Night"));
 
   var filterReset = document.querySelector(".reset");
-  filterReset.addEventListener("click", ()=>setTimeOfDay("song-container"));
+  filterReset.addEventListener("click", () => setTimeOfDay("song-container"));
 
-   var filterPartiallyCloudy = document.querySelector(".sunny");
-   filterPartiallyCloudy.addEventListener("click", () =>
-     setWeather("Sunny")
-   );
+  var filterPartiallyCloudy = document.querySelector(".sunny");
+  filterPartiallyCloudy.addEventListener("click", () => setWeather("Sunny"));
 
   var filterPartiallyCloudy = document.querySelector(".partially-cloudy");
-  filterPartiallyCloudy.addEventListener("click", ()=>setWeather("PartiallyCloudy"));
+  filterPartiallyCloudy.addEventListener("click", () =>
+    setWeather("PartiallyCloudy")
+  );
 
   var filterCloudy = document.querySelector(".cloudy");
-  filterCloudy.addEventListener("click", ()=>setWeather("Cloudy"));
+  filterCloudy.addEventListener("click", () => setWeather("Cloudy"));
 
   var filterRainy = document.querySelector(".rainy");
-  filterRainy.addEventListener("click", ()=>setWeather("Rainy"));
+  filterRainy.addEventListener("click", () => setWeather("Rainy"));
 
   var filterClearSkies = document.querySelector(".clear-skies");
-  filterClearSkies.addEventListener("click", ()=>setWeather("ClearSkies"));
+  filterClearSkies.addEventListener("click", () => setWeather("ClearSkies"));
 }
 
 function showSongs() {
@@ -147,9 +151,22 @@ function showSongs() {
     songImage.src = song.fields.Image[0].url;
     songContainer.append(songImage);
 
-    songContainer.addEventListener("click", function (event) {
-      songTitle.classList.toggle("active");
+    var songSpotify = document.createElement("a");
+    songSpotify.setAttribute("href", song.fields.Spotify);
+    songSpotify.classList.add("song-spotify");
+    songSpotify.innerHTML = "Listen to it on Spotify!";
+    songContainer.append(songSpotify);
+
+    var showMusicButtton = document.querySelector(".show-music");
+    showMusicButtton.addEventListener("click", function (event){
       songImage.classList.toggle("active");
+      console.log("see songs!")
+    })
+
+    
+    songContainer.addEventListener("click", function (event) {
+      songSpotify.classList.toggle("active");
+      console.log("click")
     });
 
     var songTime = song.fields.Time;
@@ -162,7 +179,4 @@ function showSongs() {
       songContainer.classList.add(weather);
     });
   });
-
-  
-
 }
