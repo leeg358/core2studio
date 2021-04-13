@@ -37,6 +37,7 @@ let weather = "song-container";
 function setTimeOfDay(newTimeOfDay) {
   // remember the new time
   timeOfDay = newTimeOfDay;
+
   filterSongs();
 }
 
@@ -63,6 +64,29 @@ function filterSongs() {
   }
 }
 
+//change color of selected time of day button 
+var dayButton = document.getElementsByClassName('day-button');
+function dayButtonColor() {
+    for (var i = 0; i < dayButton.length; i++) {
+      dayButton[i].classList.remove('clicked');
+    }
+    this.classList.add('clicked');
+}
+for (var i = 0; i < dayButton.length; i++) {
+  dayButton[i].addEventListener('click',dayButtonColor,false);
+}
+
+//change color of selected weather buttton
+var weatherButton = document.getElementsByClassName('weather-button');
+function weatherButtonColor() {
+    for (var i = 0; i < weatherButton.length; i++) {
+      weatherButton[i].classList.remove('clicked');
+    }
+    this.classList.add('clicked');
+}
+for (var i = 0; i < weatherButton.length; i++) {
+  weatherButton[i].addEventListener('click',weatherButtonColor,false);
+}
 
 
 function addButtonListeners() {
@@ -71,6 +95,7 @@ function addButtonListeners() {
 
   var filterEarlyMorning = document.querySelector(".early-morning");
   filterEarlyMorning.addEventListener("click", ()=>setTimeOfDay("EarlyMorning"));
+
 
   var filterMorning = document.querySelector(".morning");
   filterMorning.addEventListener("click", ()=>setTimeOfDay("Morning"));
@@ -104,6 +129,7 @@ function addButtonListeners() {
   var filterClearSkies = document.querySelector(".clear-skies");
   filterClearSkies.addEventListener("click", ()=>setWeather("ClearSkies"));
 }
+
 function showSongs() {
   console.log("showSongs()");
   songs.forEach((song) => {
@@ -136,4 +162,7 @@ function showSongs() {
       songContainer.classList.add(weather);
     });
   });
+
+  
+
 }
