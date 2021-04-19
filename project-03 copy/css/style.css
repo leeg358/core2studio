@@ -11,21 +11,18 @@ body{
 #background{
     height: 100vh;
     width: 100vw;
-     background-color: #c5b99e;
-    background-image: radial-gradient(
-      circle farthest-corner at top left, rgba(197,255,234,1) 0%, rgba(255, 255, 255, 0.692) 50%),
-        radial-gradient(
-        circle farthest-side at top right, rgba(181, 176, 177,1) 0%, rgba(172,239,240,.5) 10%),
-    radial-gradient(circle farthest-corner at bottom right, rgba(160,215,238,0.5956757703081232) 0%, rgba(204, 104, 119, 0) 33%),
-        radial-gradient(
-        circle farthest-corner at top right, rgba(255,255,255,1) 0%, rgba(172,239,240,.2) 50%),
-      radial-gradient(ellipse at bottom center, rgba(160,238,233,0.5592612044817927) 50%, rgba(255,255,255,.5) 100%);
-    position: fixed;
-    z-index: -100;
-   top: 0;
+
     }
 
-
+.header{
+    position: fixed;
+    background: lightblue;
+    width: 100vw;
+    top: 0;
+    margin: 0;
+    height: 15vh;
+    z-index: 1;
+}
 button{
    padding: .3rem .6rem;
 
@@ -41,16 +38,10 @@ button:focus{
     border-radius: 0;
 }
 .clicked {
-    border:solid 2px black;
+    font-style: italic;
 
     }
 
-h1{
-    font-family: "SneakyTimes";
-    margin: 20px;
-    
-    display: inline;
-}
 div{
     display: inline;
 }
@@ -69,10 +60,19 @@ a{
     font-size: .75rem;
 }
 
+.info{
+    position: fixed;
+    width: 20vw;
+    right: 0;
+    background: pink;
+    top: 15vh;
+}
 
 .song-container {
 text-align: center;
-    display: inline-block;
+position: relative;
+top: 15vh;
+    display: block;
     margin: 1rem;
     width: 15vw;
 
@@ -84,10 +84,8 @@ text-align: center;
 }
 
 
-
-
 .song-image {
-    display: block;
+    display: none;
     margin: auto;
     width: 80px;
     height: auto;
@@ -95,7 +93,7 @@ text-align: center;
 }
 
 .song-image.active{
-    display: none;
+    display: block;
 }
 
 
