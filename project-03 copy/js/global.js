@@ -162,17 +162,14 @@ function showSongs() {
     songArtist.innerText = song.fields.Artist;
     songInfo.append(songArtist);
 
-    /*     var songSpotify = document.createElement("a");
-    songSpotify.setAttribute("href", song.fields.Spotify);
-    songSpotify.classList.add("song-spotify");
-    songSpotify.innerHTML = "Listen to it on Spotify!";
-    songContainer.append(songSpotify); */
+    
 
-    var songSpotify = document.createElement("a");
-    songSpotify.setAttribute("href", song.fields.Song);
-    songSpotify.classList.add("song-spotify");
-    songSpotify.innerHTML = "Listen to it on Spotify!";
-    songInfo.append(songSpotify);
+    var songLink = document.createElement("a");
+    songLink.setAttribute("href", song.fields.Song);
+    songLink.classList.add("song-link");
+    songLink.innerHTML = "Listen to it on Spotify <b>↗<b>";
+    songInfo.append(songLink);
+
 
     songContainer.addEventListener("click", function (event) {
       document
@@ -181,9 +178,10 @@ function showSongs() {
 
       songContainer.classList.toggle("active");
       songImage.classList.toggle("active");
-      songSpotify.classList.toggle("active");
+      songLink.classList.toggle("active");
       songArtist.classList.toggle("active");
       songTitleInfo.classList.toggle("active");
+
     });
 
     var songTime = song.fields.Time;
@@ -195,5 +193,8 @@ function showSongs() {
     songWeather.forEach(function (weather) {
       songContainer.classList.add(weather);
     });
+
+
+
   });
 }
