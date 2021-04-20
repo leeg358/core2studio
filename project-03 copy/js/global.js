@@ -217,7 +217,15 @@ function showSongs() {
     songImage.src = song.fields.Image[0].url;
     songInfo.append(songImage);
 
-    var songTitleInfo = document.createElement("h3");
+  
+
+    var songSpotify = document.createElement("IFRAME");
+    songSpotify.setAttribute("src", song.fields.Spotify);
+    songSpotify.classList.add("song-spotify");
+    songSpotify.innerHTML = "Listen to it on Spotify!";
+    songInfo.append(songSpotify);;
+    
+  var songTitleInfo = document.createElement("h3");
     songTitleInfo.classList.add("song-title-info");
     songTitleInfo.innerText = song.fields.TitleTwo;
     songInfo.append(songTitleInfo);
@@ -226,9 +234,6 @@ function showSongs() {
     songArtist.classList.add("song-artist");
     songArtist.innerText = song.fields.Artist;
     songInfo.append(songArtist);
-
-    
-
     var songLink = document.createElement("a");
     songLink.setAttribute("href", song.fields.Song);
     songLink.classList.add("song-link");
@@ -246,6 +251,7 @@ function showSongs() {
       songLink.classList.toggle("active");
       songArtist.classList.toggle("active");
       songTitleInfo.classList.toggle("active");
+      songSpotify.classList.toggle("active");
 
     });
 
