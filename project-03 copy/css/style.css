@@ -16,6 +16,7 @@ body{
 
 .header{
     position: fixed;
+    display: inline-block;
     background: lightblue;
     width: 100vw;
     top: 0;
@@ -23,6 +24,11 @@ body{
     height: 15vh;
     z-index: 1;
 }
+.filter{
+    display: block;
+    margin: auto;
+}
+
 button{
    padding: .3rem .6rem;
 
@@ -44,6 +50,14 @@ button:focus{
 
 div{
     display: inline;
+}
+
+.sort{
+display: inline-block;
+}
+
+h1{
+    display: inline-block;
 }
 
 h2{

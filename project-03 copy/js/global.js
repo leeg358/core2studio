@@ -173,19 +173,22 @@ function showSongs() {
     songSpotify.innerHTML = "Listen to it on Spotify!";
     songInfo.append(songSpotify);
 
-    
 
-  
-    
+     
+
     songContainer.addEventListener("click", function (event) {
       songContainer.classList.toggle("active");
-/*     songImage.classList.toggle("active");
- */    songSpotify.classList.toggle("active");
-      songArtist.classList.toggle("active");
-      console.log("click")
+/*    songImage.classList.toggle("active");
+ */   songSpotify.classList.toggle("active");
+      songArtist.classList.toggle("active");  
+ 
     });
-
   
+  
+
+
+
+
 
     var songTime = song.fields.Time;
     songTime.forEach(function (time) {
