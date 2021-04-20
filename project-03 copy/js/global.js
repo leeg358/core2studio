@@ -27,7 +27,6 @@ function gotAllSongs(err) {
 function consoleLogSongs() {
   console.log("consoleLogSongs()");
   songs.forEach((song) => {
-
     console.log("Song:", song);
   });
 }
@@ -90,8 +89,6 @@ for (var i = 0; i < weatherButton.length; i++) {
   weatherButton[i].addEventListener("click", weatherButtonColor, false);
 }
 
-
-
 function addButtonListeners() {
   var filterSunrise = document.querySelector(".sunrise");
   filterSunrise.addEventListener("click", () => setTimeOfDay("Sunrise"));
@@ -149,19 +146,23 @@ function showSongs() {
     songTitle.classList.add("song-title");
     songTitle.innerText = song.fields.Title;
     songContainer.append(songTitle);
-    
 
-/*     var songImage = document.createElement("img");
+    var songImage = document.createElement("img");
     songImage.classList.add("song-image");
     songImage.src = song.fields.Image[0].url;
-    songContainer.append(songImage); */
+    songInfo.append(songImage);
+
+    var songTitleInfo = document.createElement("h3");
+    songTitleInfo.classList.add("song-title-info");
+    songTitleInfo.innerText = song.fields.TitleTwo;
+    songInfo.append(songTitleInfo);
 
     var songArtist = document.createElement("h3");
     songArtist.classList.add("song-artist");
     songArtist.innerText = song.fields.Artist;
     songInfo.append(songArtist);
 
-/*     var songSpotify = document.createElement("a");
+    /*     var songSpotify = document.createElement("a");
     songSpotify.setAttribute("href", song.fields.Spotify);
     songSpotify.classList.add("song-spotify");
     songSpotify.innerHTML = "Listen to it on Spotify!";
@@ -173,22 +174,17 @@ function showSongs() {
     songSpotify.innerHTML = "Listen to it on Spotify!";
     songInfo.append(songSpotify);
 
-
-     
-
     songContainer.addEventListener("click", function (event) {
+      document
+        .querySelectorAll(".active")
+        .forEach((song) => song.classList.remove("active"));
+
       songContainer.classList.toggle("active");
-/*    songImage.classList.toggle("active");
- */   songSpotify.classList.toggle("active");
-      songArtist.classList.toggle("active");  
- 
+      songImage.classList.toggle("active");
+      songSpotify.classList.toggle("active");
+      songArtist.classList.toggle("active");
+      songTitleInfo.classList.toggle("active");
     });
-  
-  
-
-
-
-
 
     var songTime = song.fields.Time;
     songTime.forEach(function (time) {
