@@ -194,7 +194,12 @@ function showSongs() {
       songContainer.classList.add(weather);
     });
 
-
-
   });
+
+
+
+  if ( setTimeOfDay == "Sunrise" && setWeather == "Sunny"){
+    console.log("sunny and sunrise!")
+    document.body.style.background = "pink";
+  }
 }
