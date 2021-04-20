@@ -49,6 +49,69 @@ function setWeather(newWeather) {
 function filterSongs() {
   console.log("filter songs", timeOfDay, weather);
 
+//background video MORNINGSUNNY
+  if ( timeOfDay == "EarlyMorning" && weather == "Sunny" ||  timeOfDay == "EarlyMorning" && weather == "ClearSkies" || timeOfDay == "Morning" && weather == "ClearSkies" || timeOfDay == "Morning" && weather == "Sunny"){
+    document.getElementById("morningsunny-video").style.display="block";
+  } else{
+    document.getElementById("morningsunny-video").style.display="none";
+  }
+
+//background video MORNINGCLOUDY
+if (timeOfDay == "EarlyMorning" && weather == "Rainy" || timeOfDay == "Morning" && weather == "PartiallyCloudy" ||  timeOfDay == "EarlyMorning" && weather == "PartiallyCloudy"){
+  document.getElementById("morningcloudy-video").style.display="block";
+} else{
+  document.getElementById("morningcloudy-video").style.display="none";
+}
+
+//background video NIGHT
+if (timeOfDay == "Night" && weather == "Sunny" || timeOfDay == "Night" && weather == "ClearSkies" || timeOfDay == "Night" && weather == "Cloudy" || timeOfDay == "Night" && weather == "Rainy" || timeOfDay == "Night" && weather == "PartiallyCloudy"){
+  document.getElementById("night-video").style.display="block";
+} else{
+  document.getElementById("night-video").style.display="none";
+}
+
+//background video RAINY
+if (timeOfDay == "Afternoon" && weather == "Rainy" || timeOfDay == "Morning" && weather == "Rainy" || timeOfDay == "Sunrise" && weather == "Rainy" || timeOfDay == "Sunset" && weather == "Rainy"){
+  document.getElementById("rainy-video").style.display="block";
+} else{
+  document.getElementById("rainy-video").style.display="none";
+}
+
+//background video CLEAR SUNSET
+if (timeOfDay == "Sunset" && weather == "ClearSkies" || timeOfDay == "Sunset" && weather == "Sunny" || timeOfDay == "Sunrise" && weather == "Sunny" || timeOfDay == "Sunrise" && weather == "ClearSkies"){
+  document.getElementById("clearsunset-video").style.display="block";
+} else{
+  document.getElementById("clearsunset-video").style.display="none";
+}
+
+//background video CLOUDY SUNSET
+if (timeOfDay == "Sunrise" && weather == "PartiallyCloudy" || timeOfDay == "Sunrise" && weather == "Cloudy" || timeOfDay == "Sunset" && weather == "PartiallyCloudy" || timeOfDay == "Sunset" && weather == "Cloudy"){
+  document.getElementById("cloudysunset-video").style.display="block";
+} else{
+  document.getElementById("cloudysunset-video").style.display="none";
+}
+
+//background video AFTERNOON CLEAR
+if (timeOfDay == "Afternoon" && weather == "ClearSkies"){
+  document.getElementById("afternoonclear-video").style.display="block";
+} else{
+  document.getElementById("afternoonclear-video").style.display="none";
+}
+//background video AFTERNOON SUNNY
+if (timeOfDay == "Afternoon" && weather == "Sunny"){
+  document.getElementById("afternoonsunny-video").style.display="block";
+} else{
+  document.getElementById("afternoonsunny-video").style.display="none";
+}
+//background video CLOUDY
+if (timeOfDay == "EarlyMorning" && weather == "Cloudy" || timeOfDay == "Morning" && weather == "Cloudy" || timeOfDay == "Afternoon" && weather == "PartiallyCloudy" || timeOfDay == "Afternoon" && weather == "Cloudy"){
+  document.getElementById("cloudy-video").style.display="block";
+} else{
+  document.getElementById("cloudy-video").style.display="none";
+}
+
+
+
   // hide all the songs
   const songContainers = document.querySelectorAll(".song-container");
   for (s of songContainers) {
@@ -131,6 +194,8 @@ function addButtonListeners() {
   filterClearSkies.addEventListener("click", () => setWeather("ClearSkies"));
 }
 
+
+
 function showSongs() {
   console.log("showSongs()");
   songs.forEach((song) => {
@@ -198,8 +263,4 @@ function showSongs() {
 
 
 
-  if ( setTimeOfDay == "Sunrise" && setWeather == "Sunny"){
-    console.log("sunny and sunrise!")
-    document.body.style.background = "pink";
-  }
 }
