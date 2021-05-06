@@ -234,6 +234,7 @@ function showSongs() {
     songArtist.classList.add("song-artist");
     songArtist.innerText = song.fields.Artist;
     songInfo.append(songArtist);
+
     var songLink = document.createElement("a");
     songLink.setAttribute("href", song.fields.Song);
     songLink.classList.add("song-link");

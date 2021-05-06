@@ -112,11 +112,15 @@ transform: translateY(-50%);
 }
 
 h1{
-    display: inline-block;
+/*     display: inline-block;
     font-family: "helvetica";
-    font-style: italic;
-    letter-spacing: .3rem;
-    font-weight: 400;
+    font-style: italic; */
+    color: #6089a1;
+    font-family: p22-underground, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: .4rem;
+    font-weight: 500;
     font-size: 4rem;
     padding-right: 5%;
     margin-left: 2.5vw;
@@ -126,15 +130,15 @@ h1{
 }
 
 h2{
-    font-family: "helvetica";
-    font-size: 3.5rem;
+    font-family: laski-sans, sans-serif;
+    font-size: 2.5rem;
     line-height: 3rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 15px;
     margin-bottom: -8px;
     padding-left: 2.5vw;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 12px;
+    padding-bottom: 7px;
     border-top: black 2px solid;
     cursor: pointer;
 }
@@ -173,7 +177,7 @@ width: 70vw;
 
 .song-container.active{
     font-style: italic;
-    
+    font-weight: 500;
 }
 
 
@@ -217,9 +221,9 @@ width: 70vw;
     display: block;
     text-align: right;
     padding-right: 2.5vw;
-    font-family: "helvetica";
+    font-family: laski-sans, sans-serif;
     font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 2.5rem;
     padding-bottom: .75rem;
   }
@@ -230,10 +234,12 @@ width: 70vw;
 
   .song-title-info.active{
     display: block;
+    width: 25vw;
+    margin-left: 0;
     line-height: 2.75rem;
     padding-left: 2.5vw;
-    margin-bottom: 1.5rem;
-    font-family: "helvetica";
+    margin-bottom: .5rem; 
+    font-family: laski-sans, sans-serif;
     font-weight: 500;
     font-size: 2.5rem;
   
@@ -284,3 +290,4 @@ iframe{
     padding: 0;
     border-width: 0;
 }
+

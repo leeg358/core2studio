@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Ortica";
+    src: url("/fonts/Ortica-Light.woff") format ("woff");
+}
+
+@font-face {
+    font-family: "Ortica";
+    src: url("/fonts/Ortica-Light.woff2") format ("woff2");
+}

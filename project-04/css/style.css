@@ -1,0 +1,71 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+#oneButton{
+    display: none;
+}
+#twoButton{
+    display: none;
+}
+#threeButton{
+    display: none;
+}
+
+#haiku{
+    font-family: "Ortica";
+    overflow-y: scroll;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 0;
+    margin: 40px;
+    /* height: 86vh; */
+    z-index: 5;
+    max-height: 90vh;
+    /* overflow: scroll; */
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+textarea{
+    position: absolute;
+    right: 0;
+    border: none;
+    color: transparent;
+    background: transparent;
+    font-size: 1.5rem;
+    z-index: 3;
+    caret-color: black;
+    width: 98vw;
+    height: 98vh;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea:focus, input:focus{
+    border: none;
+    opacity: 0;
+    color: transparent;
+
+}
+
+#background-video{
+    z-index: -1;
+    opacity: 1;
+     min-width: 100%; 
+    min-height: 100%; 
+    height: 100vh; 
+    object-fit: fill;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+::placeholder{
+    color: gray;
+    font-family: "Ortica";
+    
+    font-size: 2rem;
+}
